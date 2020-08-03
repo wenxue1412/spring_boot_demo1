@@ -59,7 +59,7 @@ public class ExcelTranslator2 {
 						switch (c) {
 
 						case 7:
-							p.setId(row.getCell(7).getStringCellValue());
+							p.setId(row.getCell(7).getStringCellValue().trim());
 							break;
 
 						case 8:

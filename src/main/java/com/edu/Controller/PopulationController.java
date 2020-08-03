@@ -18,8 +18,8 @@ public class PopulationController {
 	
 	@RequestMapping("/info/{id}")
 	@ResponseBody
-	public Population getPopuById(@PathVariable Integer id) {
-		return popuService.getPopuById(String.valueOf(id));
+	public Population getPopuById(@PathVariable String id) {
+		return popuService.getPopuById(id);
 	}
 
 }
