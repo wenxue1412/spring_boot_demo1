@@ -22,17 +22,18 @@ import com.edu.repository.PopulationDAO;
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes=MySpringBootApplication.class)
 public class ExcelTranslator2 {
-	
+
 	@Autowired
 	private  PopulationDAO populationDAO;
-	
-	
+
+
 	private  HSSFWorkbook readFile(String filename) throws IOException {
 		try (FileInputStream fis = new FileInputStream(filename)) {
 			return new HSSFWorkbook(fis); // NOSONAR - should not be closed here
 		}
 	}
-	
+
+	@SuppressWarnings("incomplete-switch")
 	@Test
 	public  void main() throws IOException {
 		String fileName = "C:\\Users\\15208\\Documents\\WeChat Files\\wxid_x61t6g0wif7z21\\FileStorage\\File\\2020-07\\0704Java作业说明\\2020-a.xls";
@@ -53,6 +54,7 @@ public class ExcelTranslator2 {
 				System.out.println("\nROW " + row.getRowNum() + " has " + row.getPhysicalNumberOfCells() + " cell(s).");
 				for (int c = 7; c < 30; c++) {// row.getLastCellNum()
 					HSSFCell cell = row.getCell(c);
+					@SuppressWarnings("unused")
 					String value;
 
 					if (cell != null) {
@@ -82,16 +84,16 @@ public class ExcelTranslator2 {
 							p.setTotalPopulation15_64((long)row.getCell(12).getNumericCellValue());
 							break;
 						case 13:
-							p.setTotalPopulation65AndOver((long)row.getCell(13).getNumericCellValue());		
+							p.setTotalPopulation65AndOver((long)row.getCell(13).getNumericCellValue());
 							break;
-							
+
 						case 14:
 							p.setForeignersTotal(Long.valueOf((long) row.getCell(14).getNumericCellValue()));
 							break;
-							
+
 						case 15:
 							switch(cell.getCellType()) {
-							
+
 							case STRING:
 								p.setDenselyInhabitedDistrictsPopulation(row.getCell(15).getStringCellValue());
 								break;
@@ -99,59 +101,59 @@ public class ExcelTranslator2 {
 								p.setDenselyInhabitedDistrictsPopulation(String.valueOf(row.getCell(15).getNumericCellValue()));
 								break;
 							}
-							
+
 						case 16:
 							p.setLiveBirths((long)row.getCell(16).getNumericCellValue());
 							break;
-							
+
 						case 17:
 							p.setDeath(Long.valueOf((long) row.getCell(17).getNumericCellValue()));
 							break;
-							
+
 						case 18:
 							p.setNumberOfIn_migrantsFromOtherMunicipalities(Long.valueOf((long) row.getCell(18).getNumericCellValue()));
 							break;
-							
+
 						case 19:
 							p.setNumberOfOut_migrantsFromOtherMunicipalities(Long.valueOf((long) row.getCell(19).getNumericCellValue()));
 							break;
-							
+
 						case 20:
 							p.setDayTimePopulation(Long.valueOf((long) row.getCell(20).getNumericCellValue()));
 							break;
-							
+
 						case 21:
 							p.setNumberOfHouseholds_Total(Long.valueOf((long) row.getCell(21).getNumericCellValue()));
 							break;
-							
+
 						case 22:
 							p.setNumberOfPrivateHouseholds(Long.valueOf((long) row.getCell(22).getNumericCellValue()));
 							break;
-							
+
 						case 23:
 							p.setNuclearFamilies(Long.valueOf((long) row.getCell(23).getNumericCellValue()));
 							break;
-							
+
 						case 24:
 							p.setOne_personHouseholds(Long.valueOf((long) row.getCell(24).getNumericCellValue()));
 							break;
-							
+
 						case 25:
 							p.setNumberOfNuclearFamiliesWithHouseholdMembers65AndOver(Long.valueOf((long) row.getCell(25).getNumericCellValue()));
 							break;
-							
+
 						case 26:
 							p.setNumberOfAged_coupleHouseholdsOnlyAgedCouple(Long.valueOf((long) row.getCell(26).getNumericCellValue()));
 							break;
-							
+
 						case 27:
 							p.setNumberOfAged_single_personHouseholdsAged65AndOver(Long.valueOf((long) row.getCell(27).getNumericCellValue()));
 							break;
-							
+
 						case 28:
 							p.setMarriages(Long.valueOf((long) row.getCell(28).getNumericCellValue()));
 							break;
-							
+
 						case 29:
 							p.setDivorces(Long.valueOf((long) row.getCell(29).getNumericCellValue()));
 							break;
@@ -159,14 +161,14 @@ public class ExcelTranslator2 {
 						default:
 							value = "UNKNOWN value of type " + cell.getCellType();
 						}
-						
+
 					}
-					
+
 				}
 				list.add(p);
 				populationDAO.saveAll(list);
 			}
-			
+
 		}
 	}
 }

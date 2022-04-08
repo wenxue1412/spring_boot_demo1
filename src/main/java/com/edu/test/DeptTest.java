@@ -15,13 +15,13 @@ import com.edu.mapper.DeptMapper;
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes=MySpringBootApplication.class)
 public class DeptTest {
-	
+
 	@Autowired
 	private DeptMapper deptMapper;
-	
+
 	@Test
 	public void deptListTest() {
-		List<DeptInfo> list = deptMapper.getDeptList();
+		List<DeptInfo> list = deptMapper.findDeptList();
 		for(DeptInfo dept : list) {
 			System.out.println(dept);
 		}

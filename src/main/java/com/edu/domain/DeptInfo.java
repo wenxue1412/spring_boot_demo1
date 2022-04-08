@@ -1,7 +1,14 @@
 package com.edu.domain;
 
+
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.elasticsearch.annotations.Document;
+
+@Document(indexName = "dept", type = "dept")
 public class DeptInfo {
 	
+	@Id
 	private Integer deptno;
 	
 	private String dname;

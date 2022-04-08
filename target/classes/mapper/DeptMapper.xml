@@ -6,11 +6,11 @@
 		<id property="deptno" column="deptno"/>
 		<result property="dname" column="dname" />
 		<result property="loc" column="loc"/>
-	
+
 	</resultMap>
 
 	<insert id="addDept" keyProperty="deptno" parameterType="com.edu.domain.DeptInfo" useGeneratedKeys="true">
-		insert into dept(deptno,dname,loc) values(null,#{dname},#{loc})
+		insert into dept(deptno,dname,loc) values(#{deptno},#{dname},#{loc})
 	</insert>
 
 	<update id="updateDept" parameterType="com.edu.domain.DeptInfo">

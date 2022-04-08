@@ -7,6 +7,12 @@ import com.edu.domain.DeptInfo;
 
 public interface DeptService {
 
-    DeptInfo getDeptById(Integer deptno);
-
+	List<DeptInfo> findDeptById(Integer deptno);
+    List<DeptInfo> findDeptList();
+    List<DeptInfo> findDeptByLoc(String loc);
+	List<DeptInfo> findDeptByDname(String dname);
+	List<DeptInfo> deleteDeptById(Integer id);
+	void updateDept(DeptInfo dept);
+	void addDept(DeptInfo dept);
+	List<DeptInfo> deleteDept(List<Integer> ids);
 }

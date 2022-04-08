@@ -8,7 +8,6 @@ import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
-import com.edu.domain.Population;
 
 public class ExcelTest {
 
@@ -69,7 +68,7 @@ public class ExcelTest {
 						}
 						System.out.println("CELL col=" + cell.getColumnIndex() + " VALUE=" + value);
 					}
-				}	
+				}
 			}
 		}
 	}

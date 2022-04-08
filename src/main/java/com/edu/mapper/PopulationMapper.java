@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Select;
+import org.springframework.data.domain.Page;
 
 import com.edu.domain.Population;
 
@@ -16,5 +17,8 @@ public interface PopulationMapper {
 	@ResultMap("PopulationResult")
 	Population getPopuById(@Param("id")String id);
 	
+	@Select ("select * from `population`")
+	@ResultMap("PopulationResult")
+	Page<Population> getPopuPage();
 	
 }

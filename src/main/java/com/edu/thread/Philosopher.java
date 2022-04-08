@@ -1,27 +1,26 @@
 package com.edu.thread;
 
-import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 public class Philosopher implements Runnable{
-	
+
 	private String name;
-	
+
 	private Chopstick left;
-	
+
 	private Chopstick right;
-	
+
 	public Philosopher(String name, Chopstick left, Chopstick right) {
 		super();
 		this.name = name;
 		this.left = left;
 		this.right = right;
 	}
-	
+
 	private void think() throws InterruptedException {
 		TimeUnit.MILLISECONDS.sleep(5);
 	}
-	
+
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
