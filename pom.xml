@@ -3,26 +3,23 @@
   <groupId>spring_boot_demo1</groupId>
   <artifactId>spring_boot_demo1</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <packaging>jar</packaging>
+  <packaging>war</packaging>
   <name>spring_boot_demo1</name>
   <!-- SpringBoot要求，项目必须要继承SpringBoot的起步依赖spring-boot-starter-parent -->
-	<repositories>
-        <repository>
-            <id>alimaven</id>
-            <name>aliyun maven</name>
-            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-</repositories>
+	<repositories>  
+        <repository>  
+            <id>alimaven</id>  
+            <name>aliyun maven</name>  
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>  
+            <releases>  
+                <enabled>true</enabled>  
+            </releases>  
+            <snapshots>  
+                <enabled>false</enabled>  
+            </snapshots>  
+        </repository>  
+</repositories>  
 
-	<properties>
-    	<failOnMissingWebXml>false</failOnMissingWebXml>
-	</properties>
 
 	<parent>
 

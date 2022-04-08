@@ -6,20 +6,23 @@
   <packaging>war</packaging>
   <name>spring_boot_demo1</name>
   <!-- SpringBoot要求，项目必须要继承SpringBoot的起步依赖spring-boot-starter-parent -->
-	<repositories>  
-        <repository>  
-            <id>alimaven</id>  
-            <name>aliyun maven</name>  
-            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>  
-            <releases>  
-                <enabled>true</enabled>  
-            </releases>  
-            <snapshots>  
-                <enabled>false</enabled>  
-            </snapshots>  
-        </repository>  
-</repositories>  
+	<repositories>
+        <repository>
+            <id>alimaven</id>
+            <name>aliyun maven</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+</repositories>
 
+	<properties>
+    	<failOnMissingWebXml>false</failOnMissingWebXml>
+	</properties>
 
 	<parent>
 
@@ -79,7 +82,7 @@
 		<groupId>mysql</groupId>
 		<artifactId>mysql-connector-java</artifactId>
 		</dependency>
-		
+
 		<!--JPA  -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -94,5 +97,38 @@
 			<version>4.0.1</version>
 
 		</dependency>
+
+		<!-- guava -->
+		<dependency>
+   			<groupId>com.google.guava</groupId>
+  			 <artifactId>guava</artifactId>
+  			 <version>19.0</version>
+  		</dependency>
+  		<!-- elasticsearch -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+		</dependency>
+
 	</dependencies>
+
+	<build>
+        <plugins>
+            <plugin>
+				<groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-maven-plugin</artifactId>
+      <!-- 指定版本和goals -->
+    <version>2.0.1.RELEASE</version>
+    <executions>
+        <execution>
+            <goals>
+                <goal>repackage</goal>
+            </goals>
+        </execution>
+    </executions>
+			</plugin>
+
+        </plugins>
+
+    </build>
 </project>
