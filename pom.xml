@@ -3,7 +3,7 @@
   <groupId>spring_boot_demo1</groupId>
   <artifactId>spring_boot_demo1</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <packaging>war</packaging>
+  <packaging>jar</packaging>
   <name>spring_boot_demo1</name>
   <!-- SpringBoot要求，项目必须要继承SpringBoot的起步依赖spring-boot-starter-parent -->
 	<repositories>  
